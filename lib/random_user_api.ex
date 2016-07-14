@@ -1,0 +1,2 @@
+defmodule RandomUserApi do
+end
