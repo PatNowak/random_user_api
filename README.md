@@ -1,5 +1,8 @@
 # RandomUserApi
+[![Build Status](https://travis-ci.org/PatNowak/random_user_api.svg?branch=master
+"Build Status")](https://travis-ci.org/PatNowak/random_user_api)
 
+**This is my first application according to "Programming Elixir" by Dave Thomas**
 **TODO: Add description**
 
 ## Installation
