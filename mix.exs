@@ -8,7 +8,6 @@ defmodule RandomUserApi.Mixfile do
       name: "RandomUserApi",
      source_url: "https://github.com/PatNowak/random_user_api",
      elixir: "~> 1.2",
-     escript: escript_config,
      package: package,
      description: description,
      deps: deps]
@@ -39,15 +38,11 @@ defmodule RandomUserApi.Mixfile do
 
   defp package do
     [# These are the default files included in the package
-     name: :githubissues,
+     name: :random_user_api,
      files: ["lib", "doc", "README*"],
      maintainers: ["Patryk Nowak"],
      licenses: ["Apache 2.0"],
-     links: %{"GitHub" => "https://github.com/PatNowak/GithubIssues-Elixir"}]
-  end
-
-  defp escript_config do
-    [main_module: RandomUserApi.CLI]
+     links: %{"GitHub" => "https://github.com/PatNowak/random_user_api"}]
   end
 
   defp description do
