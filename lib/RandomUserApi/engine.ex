@@ -1,7 +1,6 @@
 defmodule RandomUserApi.Engine do
-  
-  import RandomUserApi.API, only: [get: 1] 
 
+  @random_me_api Application.get_env :random_user_api, :random_me_api
   @random_me_url Application.get_env :random_user_api, :random_me_url
   def get_single_user do
     fetch_url
@@ -10,7 +9,7 @@ defmodule RandomUserApi.Engine do
   end
 
   def fetch_url do
-    result = get @random_me_url
+    result = @random_me_api.get @random_me_url
     case result do
       {:ok, data} -> data
       _ -> :error  

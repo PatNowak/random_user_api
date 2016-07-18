@@ -1,8 +1,9 @@
 defmodule RandomUserApi.TestAPI do
-  
+
+  @random_me_url Application.get_env :random_user_api, :random_me_url
   def get(url) do
     case url do
-      "valid" -> _invalid
+      @random_me_url -> _valid
        _ -> _invalid
     end
   end
