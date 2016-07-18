@@ -11,8 +11,6 @@ defmodule RandomUserApi.Mixfile do
      escript: escript_config,
      package: package,
      description: description,
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
      deps: deps]
   end
 
