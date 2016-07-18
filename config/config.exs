@@ -1,6 +1,8 @@
 # This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
+
+import_config "#{Mix.env}.exs"
 config :random_user_api, random_me_url: "http://api.randomuser.me/"
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
