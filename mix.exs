@@ -5,7 +5,7 @@ defmodule RandomUserApi.Mixfile do
     [app: :random_user_api,
      version: "0.1.0",
      elixir: "~> 1.2",
-      name: "RandomUserApi",
+     name: "RandomUserApi",
      source_url: "https://github.com/PatNowak/random_user_api",
      elixir: "~> 1.2",
      package: package,
@@ -39,7 +39,6 @@ defmodule RandomUserApi.Mixfile do
   defp package do
     [# These are the default files included in the package
      name: :random_user_api,
-     files: ["lib", "doc", "README*"],
      maintainers: ["Patryk Nowak"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/PatNowak/random_user_api"}]
