@@ -1,5 +1,8 @@
 defmodule RandomUserApi.CLI do
 
+  @moduledoc """
+  Handle the command line interface for getting random users.
+  """
   import RandomUserApi.Engine, only: [get_single_user: 0]
   def get_user do
     # here I will have to use parse_args and something like that
