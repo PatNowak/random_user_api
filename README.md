@@ -6,12 +6,12 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+The package can be installed as:
 
   1. Add random_user_api to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:random_user_api, "~> 0.0.1"}]
+          [{:random_user_api, "~> 0.1.0"}]
         end
 
   2. Ensure random_user_api is started before your application:
@@ -20,3 +20,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
           [applications: [:random_user_api]]
         end
 
+
+Sketch of the documentation is available [here](https://hexdocs.pm/random_user_api/api-reference.html).
+Enjoy!
