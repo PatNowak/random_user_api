@@ -4,6 +4,8 @@
 
 **Small and useful library, which use API of http://randomuser.me to generate random users.**
 
+[Hex link](https://hex.pm/packages/random_user_api)
+
 ## Installation
 
 The package can be installed as:
