@@ -11,7 +11,7 @@ The package can be installed as:
   1. Add random_user_api to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:random_user_api, "~> 0.1.0"}]
+          [{:random_user_api, "~> 0.5.0"}]
         end
 
   2. Ensure random_user_api is started before your application:
@@ -22,4 +22,17 @@ The package can be installed as:
 
 
 Sketch of the documentation is available [here](https://hexdocs.pm/random_user_api/api-reference.html).
+
+For now works:
+
+    getting single user
+    getting multiple users
+    getting user/s with selected gender
+
+Todo:
+  
+    getting users with selected nationality/ies
+    narrowing informations about users with inc/exc
+    
+
 Enjoy!
