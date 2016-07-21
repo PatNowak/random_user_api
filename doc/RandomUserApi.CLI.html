@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.12.0">
-    <title>RandomUserApi.CLI – RandomUserApi v0.1.0</title>
+    <title>RandomUserApi.CLI – RandomUserApi v0.5.0</title>
     <link rel="stylesheet" href="dist/app-88251e7c81.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/random_user_api/RandomUserApi.CLI.html" />
@@ -27,7 +27,7 @@
         RandomUserApi
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.0
+        v0.5.0
       </h2>
     </div>
     
@@ -60,7 +60,7 @@
 
 
       <h1>
-        <small class="visible-xs">RandomUserApi v0.1.0</small>
+        <small class="visible-xs">RandomUserApi v0.5.0</small>
         RandomUserApi.CLI
         
         
@@ -94,8 +94,62 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
+    <a href="#get_female/0">get_female()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Gets single random user with gender “female”.
+Return map with the female</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_females/1">get_females(n)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Gets n number of users and all of them are females.
+Return list of maps with females</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_male/0">get_male()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Gets single random user with gender “male”.
+Return map with the male</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_males/1">get_males(n)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Gets n number of users and all of them are males.
+Return list of maps with males</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#get_user/0">get_user()</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Gets single random user.
+Return map with the user</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_users/1">get_users(n)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Gets n number of users.
+Return list of maps with users</p>
+</div>
   
 </div>
 
@@ -119,14 +173,14 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="get_user/0">
+          <div class="detail" id="get_female/0">
   <div class="detail-header">
-    <a href="#get_user/0" class="detail-link" title="Link to this function">
+    <a href="#get_female/0" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">get_user()</span>
+    <span class="signature">get_female()</span>
     
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L7" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L36" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -134,7 +188,109 @@
   </div>
   
   <section class="docstring">
+    <p>Gets single random user with gender “female”.
+Return map with the female.</p>
+
+  </section>
+</div>
+<div class="detail" id="get_females/1">
+  <div class="detail-header">
+    <a href="#get_females/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">get_females(n)</span>
     
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L52" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
+    
+  </div>
+  
+  <section class="docstring">
+    <p>Gets n number of users and all of them are females.
+Return list of maps with females.</p>
+
+  </section>
+</div>
+<div class="detail" id="get_male/0">
+  <div class="detail-header">
+    <a href="#get_male/0" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">get_male()</span>
+    
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L28" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
+    
+  </div>
+  
+  <section class="docstring">
+    <p>Gets single random user with gender “male”.
+Return map with the male.</p>
+
+  </section>
+</div>
+<div class="detail" id="get_males/1">
+  <div class="detail-header">
+    <a href="#get_males/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">get_males(n)</span>
+    
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L44" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
+    
+  </div>
+  
+  <section class="docstring">
+    <p>Gets n number of users and all of them are males.
+Return list of maps with males.</p>
+
+  </section>
+</div>
+<div class="detail" id="get_user/0">
+  <div class="detail-header">
+    <a href="#get_user/0" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">get_user()</span>
+    
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L12" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
+    
+  </div>
+  
+  <section class="docstring">
+    <p>Gets single random user.
+Return map with the user.</p>
+
+  </section>
+</div>
+<div class="detail" id="get_users/1">
+  <div class="detail-header">
+    <a href="#get_users/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">get_users(n)</span>
+    
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L20" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
+    
+  </div>
+  
+  <section class="docstring">
+    <p>Gets n number of users.
+Return list of maps with users.</p>
+
   </section>
 </div>
 
