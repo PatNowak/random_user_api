@@ -2,14 +2,52 @@ defmodule RandomUserApi.Engine do
 
   @random_me_api Application.get_env :random_user_api, :random_me_api
   @random_me_url Application.get_env :random_user_api, :random_me_url
-  def get_single_user do
-    fetch_url
-    |> _to_json
-    |> _get_single_user
+  
+  def get_users(1) do
+    _fetch_url(@random_me_url)
+    |> _process
+    |> hd
   end
 
-  def fetch_url do
-    result = @random_me_api.get @random_me_url
+  def get_users(n) do
+    _fetch_url(@random_me_url <> "?results=#{n}")
+    |> _process
+  end
+
+  def get_users(1, gender: :male) do
+    _fetch_url(@random_me_url <> "?gender=male")
+    |> _process
+    |> hd
+  end
+
+  def get_users(1, gender: :female) do
+    _fetch_url(@random_me_url <> "?gender=female")
+    |> _process
+    |> hd
+  end
+  
+  def get_users(n, gender: :female) do
+    _fetch_url(@random_me_url <> "?results=#{n}&gender=female")
+    |> _process
+  end
+
+  def get_users(n, gender: :male) do
+    _fetch_url(@random_me_url <> "?results=#{n}&gender=male")
+    |> _process
+  end
+
+  defp _process(input) do
+    input
+    |> _to_json
+    |> _get_from_results  
+  end
+
+  def fetch_url(url) do
+    result = @random_me_api.get url
+  end
+
+  defp _fetch_url(url) do
+    result = @random_me_api.get url
     case result do
       {:ok, data} -> data
       _ -> :error  
@@ -24,13 +62,13 @@ defmodule RandomUserApi.Engine do
     :jsx.decode data.body
   end
 
-  defp _get_single_user(str) when is_bitstring(str) do
+  defp _get_from_results(str) when is_bitstring(str) do
     str  
   end
 
-  defp _get_single_user(json) do
+  defp _get_from_results(json) do
     {_results, data} = json
     |> hd
-    Enum.into(hd(data), %{})
+    for user <- data, do: Enum.into(user, %{})
   end
 end
