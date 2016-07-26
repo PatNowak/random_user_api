@@ -3,13 +3,11 @@ defmodule RandomUserApi.Mixfile do
 
   def project do
     [app: :random_user_api,
-     version: "0.5.0",
+     version: "0.5.2",
      elixir: "~> 1.2",
      name: "RandomUserApi",
      source_url: "https://github.com/PatNowak/random_user_api",
      elixir: "~> 1.2",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
      package: package,
      description: description,
      deps: deps]
@@ -43,6 +41,7 @@ defmodule RandomUserApi.Mixfile do
   defp package do
     [# These are the default files included in the package
      name: :random_user_api,
+     files: ["config", "lib", "doc", "README.*", "LICENSE"]
      maintainers: ["Patryk Nowak"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/PatNowak/random_user_api"}]
