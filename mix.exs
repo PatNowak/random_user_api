@@ -8,6 +8,8 @@ defmodule RandomUserApi.Mixfile do
      name: "RandomUserApi",
      source_url: "https://github.com/PatNowak/random_user_api",
      elixir: "~> 1.2",
+     build_embedded: Mix.env == :prod,
+     start_permanent: Mix.env == :prod,
      package: package,
      description: description,
      deps: deps]
@@ -17,7 +19,8 @@ defmodule RandomUserApi.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison, :jsx]]
+    [applications: [:logger, :httpoison, :jsx],
+  ]
   end
 
   # Dependencies can be Hex packages:
