@@ -17,9 +17,7 @@ defmodule RandomUserApi.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison, :jsx],
-     env: [random_me_api: RandomUserApi.API, 
-           random_me_url: "http://api.randomuser.me/"]]
+    [applications: [:logger, :httpoison, :jsx]]
   end
 
   # Dependencies can be Hex packages:

@@ -1,7 +1,7 @@
 defmodule RandomUserApi.Engine do
 
-  @random_me_api Application.get_env :random_user_api, :random_me_api
-  @random_me_url Application.get_env :random_user_api, :random_me_url
+  @random_me_api RandomUserApi.API
+  @random_me_url "http://api.randomuser.me"
 
   def get_users(1) do
     _fetch_url(@random_me_url)
@@ -40,10 +40,6 @@ defmodule RandomUserApi.Engine do
     input
     |> _to_json
     |> _get_from_results
-  end
-
-  def fetch_url(url) do
-    result = @random_me_api.get url
   end
 
   defp _fetch_url(url) do
