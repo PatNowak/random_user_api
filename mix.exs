@@ -3,7 +3,7 @@ defmodule RandomUserApi.Mixfile do
 
   def project do
     [app: :random_user_api,
-     version: "0.5.2",
+     version: "0.6.3",
      elixir: "~> 1.2",
      name: "RandomUserApi",
      source_url: "https://github.com/PatNowak/random_user_api",
@@ -17,7 +17,7 @@ defmodule RandomUserApi.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison, :jsx],
+    [applications: [:logger, :httpotion, :jsx],
   ]
   end
 
@@ -32,16 +32,16 @@ defmodule RandomUserApi.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.9.0"},
+      {:httpotion, "~> 3.0"},
       {:jsx, "~> 2.8.0"},
-      {:ex_doc, "~> 0.12.0" }
+      {:ex_doc, "~> 0.13.0" }
     ]
   end
 
   defp package do
     [# These are the default files included in the package
      name: :random_user_api,
-     files: ["config", "lib", "doc", "README.*", "LICENSE"]
+     files: ["config", "lib", "doc", "README.*", "LICENSE"],
      maintainers: ["Patryk Nowak"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/PatNowak/random_user_api"}]

@@ -1,69 +1,61 @@
 defmodule RandomUserApi.Engine do
 
-  @random_me_api Application.get_env :random_user_api, :random_me_api
-  @random_me_url Application.get_env :random_user_api, :random_me_url
-  
-  def get_users(1) do
-    _fetch_url(@random_me_url)
-    |> _process
-    |> hd
-  end
+  @random_me_api RandomUserApi.API
+  @random_me_url "http://api.randomuser.me"
 
-  def get_users(n) do
-    _fetch_url(@random_me_url <> "?results=#{n}")
-    |> _process
-  end
+  @doc """
+  Gets n number of random users.
+  Return list of maps with the users.
+  """
 
-  def get_users(1, gender: :male) do
-    _fetch_url(@random_me_url <> "?gender=male")
-    |> _process
-    |> hd
-  end
+  def get_users(number, gender) do
+    url = @random_me_url <> "?results=#{number}"
+    if _validate_gender gender do
+      url = url <> "&gender=#{gender}"
+    end
 
-  def get_users(1, gender: :female) do
-    _fetch_url(@random_me_url <> "?gender=female")
-    |> _process
-    |> hd
-  end
-  
-  def get_users(n, gender: :female) do
-    _fetch_url(@random_me_url <> "?results=#{n}&gender=female")
+    _fetch_url(url)
     |> _process
   end
 
-  def get_users(n, gender: :male) do
-    _fetch_url(@random_me_url <> "?results=#{n}&gender=male")
-    |> _process
+  defp _validate_gender(gender) do
+    case gender do
+      :female -> :female
+      :male -> :male
+      _ -> nil
+    end
   end
+
+ # TODO
+  # defp _validate_nat(nat) do
+  #    nats = ~w(AU BR CA CH DE DK ES FI FR GB IE IR NL NZ TR US)
+  # end
 
   defp _process(input) do
     input
     |> _to_json
-    |> _get_from_results  
-  end
-
-  def fetch_url(url) do
-    result = @random_me_api.get url
+    |> _get_from_results
   end
 
   defp _fetch_url(url) do
+    IO.puts url
     result = @random_me_api.get url
     case result do
-      {:ok, data} -> data
-      _ -> :error  
+      %{body: data} -> data
+      %{message: _} -> :error
     end
   end
 
   defp _to_json(:error) do
-    "An error occured. Please try again later."  
+    "An error occured. Please try again later."
   end
 
   defp _to_json(data) do
-    :jsx.decode data.body
+    :jsx.decode data
   end
 
   defp _get_from_results(str) when is_bitstring(str) do
-    str  
+    str
   end
 
   defp _get_from_results(json) do
