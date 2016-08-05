@@ -16,7 +16,7 @@ The package can be installed as:
           [{:random_user_api, "~> 0.5.0"}]
         end
 
-  2. Ensure random_user_api is started before your application:
+  2. Ensure random_user_api is started before your application, otherwise it won't work:
 
         def application do
           [applications: [:random_user_api]]

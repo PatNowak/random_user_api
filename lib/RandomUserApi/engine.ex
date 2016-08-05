@@ -1,8 +1,8 @@
 defmodule RandomUserApi.Engine do
 
-  @random_me_api Application.get_env :random_user_api, :random_me_api
-  @random_me_url Application.get_env :random_user_api, :random_me_url
-  
+  @random_me_api RandomUserApi.API
+  @random_me_url "http://api.randomuser.me"
+
   def get_users(1) do
     _fetch_url(@random_me_url)
     |> _process
@@ -25,7 +25,7 @@ defmodule RandomUserApi.Engine do
     |> _process
     |> hd
   end
-  
+
   def get_users(n, gender: :female) do
     _fetch_url(@random_me_url <> "?results=#{n}&gender=female")
     |> _process
@@ -39,23 +39,19 @@ defmodule RandomUserApi.Engine do
   defp _process(input) do
     input
     |> _to_json
-    |> _get_from_results  
-  end
-
-  def fetch_url(url) do
-    result = @random_me_api.get url
+    |> _get_from_results
   end
 
   defp _fetch_url(url) do
     result = @random_me_api.get url
     case result do
       {:ok, data} -> data
-      _ -> :error  
+      _ -> :error
     end
   end
 
   defp _to_json(:error) do
-    "An error occured. Please try again later."  
+    "An error occured. Please try again later."
   end
 
   defp _to_json(data) do
@@ -63,7 +59,7 @@ defmodule RandomUserApi.Engine do
   end
 
   defp _get_from_results(str) when is_bitstring(str) do
-    str  
+    str
   end
 
   defp _get_from_results(json) do

@@ -3,7 +3,11 @@ defmodule RandomUserApi.Mixfile do
 
   def project do
     [app: :random_user_api,
+<<<<<<< HEAD
      version: "0.5.2",
+=======
+     version: "0.5.5",
+>>>>>>> 08c5b983b0643dd65708b1993e3a24e6226f7ff2
      elixir: "~> 1.2",
      name: "RandomUserApi",
      source_url: "https://github.com/PatNowak/random_user_api",
