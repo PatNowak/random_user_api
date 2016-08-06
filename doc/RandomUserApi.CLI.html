@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.12.0">
-    <title>RandomUserApi.CLI – RandomUserApi v0.5.0</title>
-    <link rel="stylesheet" href="dist/app-88251e7c81.css" />
+    <meta name="generator" content="ExDoc v0.13.0">
+    <title>RandomUserApi.CLI – RandomUserApi v0.6.3</title>
+    <link rel="stylesheet" href="dist/app-9c1e3d5aa2.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/random_user_api/RandomUserApi.CLI.html" />
     
     <script src="dist/sidebar_items.js"></script>
   </head>
   <body data-type="modules">
+    <script>if(localStorage.getItem('night-mode')) document.body.className += ' night-mode';</script>
 
     <div class="main">
 <button class="sidebar-toggle">
@@ -27,7 +28,7 @@
         RandomUserApi
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.5.0
+        v0.6.3
       </h2>
     </div>
     
@@ -60,7 +61,7 @@
 
 
       <h1>
-        <small class="visible-xs">RandomUserApi v0.5.0</small>
+        <small class="visible-xs">RandomUserApi v0.6.3</small>
         RandomUserApi.CLI
         
         
@@ -94,62 +95,20 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_female/0">get_female()</a>
+    <a href="#main/1">main(argv)</a>
   </div>
-  
-    <div class="summary-synopsis"><p>Gets single random user with gender “female”.
-Return map with the female</p>
-</div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_females/1">get_females(n)</a>
+    <a href="#parse_args/1">parse_args(argv)</a>
   </div>
-  
-    <div class="summary-synopsis"><p>Gets n number of users and all of them are females.
-Return list of maps with females</p>
-</div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_male/0">get_male()</a>
+    <a href="#process/1">process(arg1)</a>
   </div>
-  
-    <div class="summary-synopsis"><p>Gets single random user with gender “male”.
-Return map with the male</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#get_males/1">get_males(n)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Gets n number of users and all of them are males.
-Return list of maps with males</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#get_user/0">get_user()</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Gets single random user.
-Return map with the user</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#get_users/1">get_users(n)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Gets n number of users.
-Return list of maps with users</p>
-</div>
   
 </div>
 
@@ -173,14 +132,14 @@ Return list of maps with users</p>
             </a>
             Functions
           </h1>
-          <div class="detail" id="get_female/0">
+          <div class="detail" id="main/1">
   <div class="detail-header">
-    <a href="#get_female/0" class="detail-link" title="Link to this function">
+    <a href="#main/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">get_female()</span>
+    <span class="signature">main(argv)</span>
     
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L36" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L8" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -188,19 +147,17 @@ Return list of maps with users</p>
   </div>
   
   <section class="docstring">
-    <p>Gets single random user with gender “female”.
-Return map with the female.</p>
-
+    
   </section>
 </div>
-<div class="detail" id="get_females/1">
+<div class="detail" id="parse_args/1">
   <div class="detail-header">
-    <a href="#get_females/1" class="detail-link" title="Link to this function">
+    <a href="#parse_args/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">get_females(n)</span>
+    <span class="signature">parse_args(argv)</span>
     
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L52" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L34" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -208,19 +165,17 @@ Return map with the female.</p>
   </div>
   
   <section class="docstring">
-    <p>Gets n number of users and all of them are females.
-Return list of maps with females.</p>
-
+    
   </section>
 </div>
-<div class="detail" id="get_male/0">
+<div class="detail" id="process/1">
   <div class="detail-header">
-    <a href="#get_male/0" class="detail-link" title="Link to this function">
+    <a href="#process/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">get_male()</span>
+    <span class="signature">process(arg1)</span>
     
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L28" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L14" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -228,69 +183,7 @@ Return list of maps with females.</p>
   </div>
   
   <section class="docstring">
-    <p>Gets single random user with gender “male”.
-Return map with the male.</p>
-
-  </section>
-</div>
-<div class="detail" id="get_males/1">
-  <div class="detail-header">
-    <a href="#get_males/1" class="detail-link" title="Link to this function">
-      <i class="icon-link"></i>
-    </a>
-    <span class="signature">get_males(n)</span>
     
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L44" class="view-source" rel="help" title="View Source">
-       <i class="icon-code"></i>
-     </a>
-    
-    
-  </div>
-  
-  <section class="docstring">
-    <p>Gets n number of users and all of them are males.
-Return list of maps with males.</p>
-
-  </section>
-</div>
-<div class="detail" id="get_user/0">
-  <div class="detail-header">
-    <a href="#get_user/0" class="detail-link" title="Link to this function">
-      <i class="icon-link"></i>
-    </a>
-    <span class="signature">get_user()</span>
-    
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L12" class="view-source" rel="help" title="View Source">
-       <i class="icon-code"></i>
-     </a>
-    
-    
-  </div>
-  
-  <section class="docstring">
-    <p>Gets single random user.
-Return map with the user.</p>
-
-  </section>
-</div>
-<div class="detail" id="get_users/1">
-  <div class="detail-header">
-    <a href="#get_users/1" class="detail-link" title="Link to this function">
-      <i class="icon-link"></i>
-    </a>
-    <span class="signature">get_users(n)</span>
-    
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/cli.ex#L20" class="view-source" rel="help" title="View Source">
-       <i class="icon-code"></i>
-     </a>
-    
-    
-  </div>
-  
-  <section class="docstring">
-    <p>Gets n number of users.
-Return list of maps with users.</p>
-
   </section>
 </div>
 
@@ -304,7 +197,7 @@ Return list of maps with users.</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.12.0),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.13.0),
           </span>
           <span class="line">
             designed by

@@ -5,52 +5,40 @@ defmodule RandomUserApi.CLI do
   """
   alias RandomUserApi.Engine
 
-  @doc """
-  Gets single random user.
-  Return map with the user.
-  """
-  def get_user do
-    Engine.get_users 1
+  def main(argv) do
+    argv
+    |> parse_args
+    |> process
   end
 
-  @doc """
-  Gets n number of users.
-  Return list of maps with users.
-  """
-  def get_users(n) do
-    Engine.get_users(n)
+  def process(:unknown) do
+    IO.puts "Unknown command, please try again. Specify at least number of users."
+    System.halt(0)
   end
 
-  @doc """
-  Gets single random user with gender "male".
-  Return map with the male.
-  """
-  def get_male do
-    Engine.get_users(1, gender: :male)
+  def process(:help) do
+    IO.puts """
+    Random_user_api is small library to generates random users.
+    usage: <number> [gender | nil] [nationalities| nil]
+    * number - number of users, there's no default value
+    * gender - male or female, by default is set to nil
+    * nationalities - you can specify one or more in list, by default is nil
+    """
+    System.halt(0)
   end
 
-  @doc """
-  Gets single random user with gender "female".
-  Return map with the female.
-  """
-  def get_female do
-    Engine.get_users(1, gender: :female)
+  def process({number, gender}) do
+    Engine.get_users(number, gender)
   end
 
-  @doc """
-  Gets n number of users and all of them are males.
-  Return list of maps with males.
-  """
-  def get_males(n) do
-    Engine.get_users(n, gender: :male)
-  end
-
-  @doc """
-  Gets n number of users and all of them are females.
-  Return list of maps with females.
-  """
-  def get_females(n) do
-    Engine.get_users(n, gender: :female)
+  def parse_args(argv) do
+    parse = OptionParser.parse(argv, switches: [help: :boolean], aliases: [h: :help])
+    case parse do
+      {[help: true], _, _} -> :help
+      {_, [number, gender], _} -> {number, gender}
+      {_, [number], _} -> {number, nil}
+      _ -> :unknown
+    end
   end
 
 end

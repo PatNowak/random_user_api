@@ -3,6 +3,6 @@ defmodule RandomUserApi.API do
   Simply go to requested url to get its data
   """
   def get(url) do
-    HTTPoison.get url
+    HTTPotion.get url
   end
 end
