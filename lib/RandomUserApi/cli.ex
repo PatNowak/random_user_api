@@ -27,17 +27,16 @@ defmodule RandomUserApi.CLI do
     System.halt(0)
   end
 
-  def process({number, gender, nat}) do
-    RandomUserApi.Engine.get_users(number, gender, nat)
+  def process({number, gender}) do
+    Engine.get_users(number, gender)
   end
 
   def parse_args(argv) do
     parse = OptionParser.parse(argv, switches: [help: :boolean], aliases: [h: :help])
     case parse do
       {[help: true], _, _} -> :help
-      {_, [number, gender, nat], _} -> {number, gender, nat}
-      {_, [number, gender, _ ], _} -> {number, gender, nil}
-      {_, [number, _, _ ], _} -> {number, nil, nil}
+      {_, [number, gender], _} -> {number, gender}
+      {_, [number], _} -> {number, nil}
       _ -> :unknown
     end
   end
