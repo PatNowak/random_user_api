@@ -1,6 +1,6 @@
-defmodule RandomUserApiEngineTest do
+defmodule RandomUserApiTest do
   use ExUnit.Case
-  doctest RandomUserApi.Engine
+  doctest RandomUserApi
 
   test "the truth" do
     assert 1 + 1 == 2

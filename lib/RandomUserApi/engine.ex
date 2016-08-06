@@ -1,6 +1,4 @@
 defmodule RandomUserApi.Engine do
-
-  @random_me_api RandomUserApi.API
   @random_me_url "http://api.randomuser.me"
 
   @doc """
@@ -21,6 +19,10 @@ defmodule RandomUserApi.Engine do
     url
     |> _fetch_url
     |> _process
+  end
+
+  defp _random_user_api do
+    Application.get_env(:random_user_api, :random_me_api)
   end
 
   defp _validate_gender(gender) do
@@ -49,8 +51,7 @@ defmodule RandomUserApi.Engine do
   end
 
   defp _fetch_url(url) do
-    result = @random_me_api.get url
-    IO.puts inspect result
+    result = _random_user_api.get url
     case result do
       %{body: data} -> data
       %{message: _} -> :error
