@@ -13,6 +13,7 @@ defmodule RandomUserApi.Engine do
     if _validate_gender gender do
       url = url <> "&gender=#{gender}"
     end
+  end
 
   defp _validate_gender(gender) do
     case gender do
