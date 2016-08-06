@@ -18,6 +18,7 @@ defmodule RandomUserApi.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger, :httpotion, :jsx],
+    env: [random_me_api: RandomUserApi.API]
   ]
   end
 
