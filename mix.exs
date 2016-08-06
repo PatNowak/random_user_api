@@ -35,14 +35,13 @@ defmodule RandomUserApi.Mixfile do
     [
       {:httpotion, "~> 3.0"},
       {:jsx, "~> 2.8.0"},
-      {:ex_doc, "~> 0.13.0" }
+      {:ex_doc, "~> 0.13.0"}
     ]
   end
 
   defp package do
     [# These are the default files included in the package
      name: :random_user_api,
-     files: ["config", "lib", "doc", "README.*", "LICENSE"],
      maintainers: ["Patryk Nowak"],
      licenses: ["Apache 2.0"],
      links: %{"GitHub" => "https://github.com/PatNowak/random_user_api"}]
