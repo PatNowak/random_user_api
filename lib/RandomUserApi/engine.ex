@@ -11,12 +11,11 @@ defmodule RandomUserApi.Engine do
   - nat: list of nationalities, comma-separated. In handles only known nationalities by the API.
   """
 
-  def get_users(number, gender, nat \\ []) do
-    url = @random_me_url <> "?results=#{number}"
-    url = if _validate_gender(gender), do: url <> "&gender=#{gender}", else: url
-    nat = _validate_nat(nat)
-    url = if nat != "", do: url <> "&nat=#{nat}", else: url
-    url
+  def get_users(options \\ []) do
+    @random_me_url
+    |> _validate_number(options)
+    |> _validate_gender(options)
+    |> _validate_nat(options)
     |> _fetch_url
     |> _process
   end
@@ -25,23 +24,35 @@ defmodule RandomUserApi.Engine do
     Application.get_env(:random_user_api, :random_me_api)
   end
 
-  defp _validate_gender(gender) do
-    case gender do
+  def _validate_number(url, options) do
+    number = cond do
+      is_number(options[:number]) -> options[:number]
+      true -> 1
+    end
+    url <> "?results=#{number}"
+  end
+
+  defp _validate_gender(url, options) do
+    gender = case options[:gender] do
       :female -> :female
       :male -> :male
       _ -> nil
     end
+    if gender do
+      url = url <> "&gender=#{gender}" 
+    end
+    url
   end
 
-  defp _validate_nat(nat) when is_list(nat) do
+  defp _validate_nat(url, options) do
      nats = ~w(AU BR CA CH DE DK ES FI FR GB IE IR NL NZ TR US)
-     nat
+     nat = cond do
+       is_list(options[:nat]) -> options[:nat]
+       true -> []
+     end
      |> Enum.filter(&(&1 in nats))
      |> Enum.join(",")
-  end
-
-  defp _validate_nat(_nat) do
-    ""
+     url <> "&nat=#{nat}"
   end
 
   defp _process(input) do

@@ -37,7 +37,7 @@ defmodule RandomUserApiEngineTest do
     {"medium", "https://randomuser.me/api/portraits/med/men/16.jpg"},
     {"thumbnail", "https://randomuser.me/api/portraits/thumb/men/16.jpg"}],
    "registered" => 1331266826}]
-    assert Engine.get_users(2, :male) == expected_result
+    assert Engine.get_users([number: 2, gender: :male]) == expected_result
   end
 
   test "get_three_females_from_br_or_ca_works" do
@@ -91,6 +91,6 @@ defmodule RandomUserApiEngineTest do
     {"medium", "https://randomuser.me/api/portraits/med/women/32.jpg"},
     {"thumbnail", "https://randomuser.me/api/portraits/thumb/women/32.jpg"}],
    "registered" => 1427230852}]
-      assert Engine.get_users(3, :female, ["BR", "CA", "PL"]) == expected_result
+      assert Engine.get_users([number: 3, gender: :female, nat: ["BR", "CA", "PL"]]) == expected_result
   end
 end

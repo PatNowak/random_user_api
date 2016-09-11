@@ -7,7 +7,7 @@ defmodule RandomUserApi.TestAPI do
   """
   def get(url) do
     case url do
-      @random_me_url <> "?results=2&gender=male" -> _two_male_users
+      @random_me_url <> "?results=2&gender=male&nat=" -> _two_male_users
       @random_me_url <> "?results=3&gender=female&nat=BR,CA" -> _three_females_from_br_or_ca
     end
   end
