@@ -1,21 +1,28 @@
 defmodule RandomUserApi.Engine do
   @random_me_url "http://api.randomuser.me"
+  @possible_fields ~w(cell dob email gender id location login name nat phone picture registered)
+  @nats ~w(AU BR CA CH DE DK ES FI FR GB IE IR NL NZ TR US)
 
   @doc """
   Function that generates n number of random users.
   Return list of maps with the users.
 
   ## Parameters
-  - number: integer that represents number of of required random users.
-  - gender: atom, :male or :female. If something different is passed, it won't be applied.
-  - nat: list of nationalities, comma-separated. In handles only known nationalities by the API.
+  * options: list of options, possible switches are:
+    * number: integer that represents number of of required random users
+    * gender: atom, :male or :female. If something different is passed, it won't be applied
+    * nat: list of nationalities, comma-separated. In handles only known nationalities by the API
+    * inc: list of included fields
+    * exc: list of excluded fields
   """
 
   def get_users(options \\ []) do
     @random_me_url
     |> _validate_number(options)
     |> _validate_gender(options)
-    |> _validate_nat(options)
+    |> _validate_fields(:nat, options)
+    |> _validate_fields(:inc, options)
+    |> _validate_fields(:exc, options)
     |> _fetch_url
     |> _process
   end
@@ -39,21 +46,26 @@ defmodule RandomUserApi.Engine do
       _ -> nil
     end
     if gender do
-      url = url <> "&gender=#{gender}" 
+      url <> "&gender=#{gender}" 
+    else
+      url
     end
-    url
   end
 
-  defp _validate_nat(url, options) do
-     nats = ~w(AU BR CA CH DE DK ES FI FR GB IE IR NL NZ TR US)
-     nat = cond do
-       is_list(options[:nat]) -> options[:nat]
-       true -> []
-     end
-     |> Enum.filter(&(&1 in nats))
-     |> Enum.join(",")
-     url <> "&nat=#{nat}"
-  end
+  defp _validate_fields(url, name, options) do
+    possible_fields = if name == :nat do
+      @nats
+    else
+      @possible_fields
+    end
+    fields = cond do
+      is_list(options[name]) -> options[name]
+      true -> []
+    end
+   |> Enum.filter(&(&1 in possible_fields))
+   |> Enum.join(",")
+   url <> "&#{name}=#{fields}" 
+  end 
 
   defp _process(input) do
     input
@@ -82,8 +94,15 @@ defmodule RandomUserApi.Engine do
   end
 
   defp _get_from_results(json) do
-    {_results, data} = json
-    |> hd
+    {_results, data} = hd(json)
+    is_empty = fn(x) -> (
+      if x == [{}] do
+        []
+      else
+        x
+      end
+    ) end
+    data = Enum.map(data, is_empty)
     for user <- data, do: Enum.into(user, %{})
   end
 end

@@ -7,8 +7,10 @@ defmodule RandomUserApi.TestAPI do
   """
   def get(url) do
     case url do
-      @random_me_url <> "?results=2&gender=male&nat=" -> _two_male_users
-      @random_me_url <> "?results=3&gender=female&nat=BR,CA" -> _three_females_from_br_or_ca
+      @random_me_url <> "?results=2&gender=male&nat=&inc=&exc=" -> _two_male_users
+      @random_me_url <> "?results=3&gender=female&nat=BR,CA&inc=&exc=" -> _three_females_from_br_or_ca
+      @random_me_url <> "?results=2&nat=&inc=cell&exc=cell" -> _inc_and_exc
+      @random_me_url <> "?results=1&nat=&inc=cell,nat&exc=" -> _inc_cell_and_nat
     end
   end
 
@@ -18,5 +20,13 @@ defmodule RandomUserApi.TestAPI do
 
   def _three_females_from_br_or_ca do
     %HTTPotion.Response{body: "{\"results\":[{\"gender\":\"female\",\"name\":{\"title\":\"miss\",\"first\":\"harper\",\"last\":\"brown\"},\"location\":{\"street\":\"7650 disputed rd\",\"city\":\"cadillac\",\"state\":\"nova scotia\",\"postcode\":47287},\"email\":\"harper.brown@example.com\",\"login\":{\"username\":\"bluegorilla893\",\"password\":\"azzer\",\"salt\":\"8JcRKIbu\",\"md5\":\"b11b7c671c236547056b1141cfd6a8c0\",\"sha1\":\"fd793a739cd8a0cd112589ec51b9cb2b273d30c9\",\"sha256\":\"163ec5c1ab6e51cbd172862d91c9deff25bf8d6412e07cd1bbea0065054aa18a\"},\"registered\":1191445651,\"dob\":587996788,\"phone\":\"289-974-8704\",\"cell\":\"423-257-7452\",\"id\":{\"name\":\"\",\"value\":null},\"picture\":{\"large\":\"https://randomuser.me/api/portraits/women/47.jpg\",\"medium\":\"https://randomuser.me/api/portraits/med/women/47.jpg\",\"thumbnail\":\"https://randomuser.me/api/portraits/thumb/women/47.jpg\"},\"nat\":\"CA\"},{\"gender\":\"female\",\"name\":{\"title\":\"ms\",\"first\":\"daiane\",\"last\":\"farias\"},\"location\":{\"street\":\"1560 rua das flores \",\"city\":\"guarujá\",\"state\":\"paraná\",\"postcode\":31565},\"email\":\"daiane.farias@example.com\",\"login\":{\"username\":\"redbutterfly452\",\"password\":\"mantis\",\"salt\":\"UCjTvHVB\",\"md5\":\"456cf564d31e6d5752cdb4369e49f515\",\"sha1\":\"d76494760467aace0a046ddcb0bf83cd3a31dd98\",\"sha256\":\"1e2b27d163d779925c871fe60de8983205dfb01b545a6c0590a4c4680e74b065\"},\"registered\":1225553978,\"dob\":650114648,\"phone\":\"(76) 9288-5062\",\"cell\":\"(62) 4386-9592\",\"id\":{\"name\":\"\",\"value\":null},\"picture\":{\"large\":\"https://randomuser.me/api/portraits/women/7.jpg\",\"medium\":\"https://randomuser.me/api/portraits/med/women/7.jpg\",\"thumbnail\":\"https://randomuser.me/api/portraits/thumb/women/7.jpg\"},\"nat\":\"BR\"},{\"gender\":\"female\",\"name\":{\"title\":\"ms\",\"first\":\"charlotte\",\"last\":\"kowalski\"},\"location\":{\"street\":\"4416 vimy st\",\"city\":\"borden\",\"state\":\"british columbia\",\"postcode\":19578},\"email\":\"charlotte.kowalski@example.com\",\"login\":{\"username\":\"tinycat237\",\"password\":\"tuan\",\"salt\":\"0MoWIFBZ\",\"md5\":\"786e5a91ce843bb7ce7dab7bd6f8fc43\",\"sha1\":\"66b9b944cdde8c1b7dc08d3cb2e44defd6582a07\",\"sha256\":\"2bf22107181d53d6a799b309a5d227027e3a6d162890bda2082fc733ad1717df\"},\"registered\":1427230852,\"dob\":825734892,\"phone\":\"230-207-8629\",\"cell\":\"272-101-1332\",\"id\":{\"name\":\"\",\"value\":null},\"picture\":{\"large\":\"https://randomuser.me/api/portraits/women/32.jpg\",\"medium\":\"https://randomuser.me/api/portraits/med/women/32.jpg\",\"thumbnail\":\"https://randomuser.me/api/portraits/thumb/women/32.jpg\"},\"nat\":\"CA\"}],\"info\":{\"seed\":\"a89df5d246ac44d6\",\"results\":3,\"page\":1,\"version\":\"1.0\"}}", headers: %HTTPotion.Headers{hdrs: ["access-control-allow-origin": "*", "cache-control": "no-cache", connection: "keep-alive", "content-length": "2435", "content-type": "application/json; charset=utf-8", date: "Sat, 06 Aug 2016 15:32:02 GMT", etag: "W/\"983-nDBkk6pbm4ZPKglrnAvmlA\"", server: "nginx", vary: "Accept-Encoding", "x-powered-by": "Express"]}, status_code: 200}
+  end
+
+  defp _inc_and_exc do
+    %HTTPotion.Response{body: "{\"results\":[{},{}],\"info\":{\"seed\":\"1eb1c5f9f741c72e\",\"results\":2,\"page\":1,\"version\":\"1.0\"}}", headers: %HTTPotion.Headers{hdrs: ["access-control-allow-origin": "*", "cache-control": "no-cache", connection: "keep-alive", "content-length": "1691", "content-type": "application/json; charset=utf-8", date: "Sat, 06 Aug 2016 15:29:59 GMT", etag: "W/\"69b-RvSGbaKDmN/uejdmZY26tg\"", server: "nginx", vary: "Accept-Encoding", "x-powered-by": "Express"]}, status_code: 200}
+  end
+
+  def _inc_cell_and_nat do
+    %HTTPotion.Response{body: "{\"results\":[{\"cell\":\"272-101-1332\",\"nat\":\"CA\"}],\"info\":{\"seed\":\"a89df5d246ac44d6\",\"results\":3,\"page\":1,\"version\":\"1.0\"}}", headers: %HTTPotion.Headers{hdrs: ["access-control-allow-origin": "*", "cache-control": "no-cache", connection: "keep-alive", "content-length": "2435", "content-type": "application/json; charset=utf-8", date: "Sat, 06 Aug 2016 15:32:02 GMT", etag: "W/\"983-nDBkk6pbm4ZPKglrnAvmlA\"", server: "nginx", vary: "Accept-Encoding", "x-powered-by": "Express"]}, status_code: 200}
   end
 end

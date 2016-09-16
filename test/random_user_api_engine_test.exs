@@ -93,4 +93,14 @@ defmodule RandomUserApiEngineTest do
    "registered" => 1427230852}]
       assert Engine.get_users([number: 3, gender: :female, nat: ["BR", "CA", "PL"]]) == expected_result
   end
+
+  test "inc_works_properly" do
+    expected_result = [%{"cell" => "272-101-1332", "nat" => "CA"}]
+      assert Engine.get_users([inc: ["cell", "nat"]]) == expected_result
+  end
+
+  test "inc_and_exc_when_have_same_values_return_empty_users" do
+    expected_result = [%{}, %{}]
+      assert Engine.get_users([number: 2, inc: ["cell"], exc: ["cell"]]) == expected_result
+  end
 end
