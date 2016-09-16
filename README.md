@@ -59,6 +59,7 @@ If nationality you put is not known by the API, it will be ignored. Same story w
 If you use same list in `inc` and `exc` result will be list of empty map(s).
 
 `> Engine.get_users [number: 3, inc: ["cell"], exc: ["cell"]]`
+
 `[%{}, %{}, %{}]`
 
 
