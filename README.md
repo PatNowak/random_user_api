@@ -32,24 +32,30 @@ To use this library just call `Engine.get_users/1` with `options`, which are by 
 In this short instruction assume, that `Engine` is an alias for `RandomUserApi.Engine`.
 
 - Get single user
+
         Engine.get_users`
 
 - Get Multiple users eg. 10
+
         Engine.get_users [number: 10]
 
 - Get users with selected gender eg. `"female"`
+
         Engine.get_users [gender: :female]
 
 - Get three mans
+
         Engine.get_users [number: 3, gender: :male]
 
 - Get BR user
         Engine.get_users [nat: ["BR"]]`
 
 - Get two users from US or CA - `PL` will be ignored
+
         Engine.get_users [number: 2, nat: ["CA", "US", "PL"]
 
 - Include or exclude fields 
+
         Engine.get_users [inc: ["cell", "email"]`
         Engine.get_users [exc: ["login"]]`
 
@@ -58,7 +64,7 @@ If nationality you put is not known by the API, it will be ignored. Same story w
 
 If you use same list in `inc` and `exc` result will be list of empty map(s).
 
-        Engine.get_users [number: 3, inc: ["cell"], exc: ["cell"]]
+        > Engine.get_users [number: 3, inc: ["cell"], exc: ["cell"]]
         [%{}, %{}, %{}]
 
 
