@@ -13,7 +13,7 @@ The package can be installed as:
   1. Add random_user_api to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:random_user_api, "~> 0.7.1"}]
+          [{:random_user_api, "~> 1.0.0"}]
         end
 
   2. Ensure random_user_api is started before your application, otherwise it won't work:
