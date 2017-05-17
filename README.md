@@ -11,7 +11,7 @@
 The package can be installed as:
 
   1. Add random_user_api to your list of dependencies in `mix.exs`:
-        
+
         def deps do
           [{:random_user_api, "~> 1.0.0"}]
         end
@@ -48,31 +48,16 @@ In this short instruction assume, that `Engine` is an alias for `RandomUserApi.E
         Engine.get_users [number: 3, gender: :male]
 
 - Get BR user
-        Engine.get_users [nat: ["BR"]]`
+        Engine.get_users [nat: "BR"]`
 
-- Get two users from US or CA - `PL` will be ignored
+###TODO:
 
-        Engine.get_users [number: 2, nat: ["CA", "US", "PL"]
+- Included / excluded fields
+- list of values
 
-- Include or exclude fields 
-
-        Engine.get_users [inc: ["cell", "email"]`
-        Engine.get_users [exc: ["login"]]`
+I rewrited this library to use HTTPoison, because HTTPotion had issues with SSL.
 
 ### Note:
-If nationality you put is not known by the API, it will be ignored. Same story with `gender` or fields to include or exclude with `inc` and `exc`.
-
-If you use same list in `inc` and `exc` result will be list of empty map(s).
-
-        > Engine.get_users [number: 3, inc: ["cell"], exc: ["cell"]]
-        [%{}, %{}, %{}]
-
-
-
-#### Known nationalities
-`~w(AU BR CA CH DE DK ES FI FR GB IE IR NL NZ TR US)`
-
-#### Known fields to include/exclude
-`~w(cell dob email gender id location login name nat phone picture registered)`
+If nationality you put is not known by the API, it will be ignored. Same story with `gender`.
 
 Enjoy!
