@@ -17,7 +17,7 @@ defmodule RandomUserApi.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpotion, :jsx],
+    [applications: [:logger, :httpoison, :jsx],
     env: [random_me_api: RandomUserApi.API]
   ]
   end
@@ -33,7 +33,7 @@ defmodule RandomUserApi.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpotion, "~> 3.0"},
+      {:httpoison, "~> 0.11.2"},
       {:jsx, "~> 2.8.0"},
       {:ex_doc, "~> 0.13.0"}
     ]
