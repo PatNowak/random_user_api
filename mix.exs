@@ -3,7 +3,7 @@ defmodule RandomUserApi.Mixfile do
 
   def project do
     [app: :random_user_api,
-     version: "1.2.0",
+     version: "1.2.1",
      elixir: "~> 1.2",
      name: "RandomUserApi",
      source_url: "https://github.com/PatNowak/random_user_api",
@@ -33,7 +33,7 @@ defmodule RandomUserApi.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.11.2"},
+      {:httpoison, "~> 0.11.0"},
       {:jsx, "~> 2.8.0"},
       {:ex_doc, "~> 0.13.0"}
     ]

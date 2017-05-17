@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.13.0">
-    <title>RandomUserApi.Engine – RandomUserApi v1.1.0</title>
+    <title>RandomUserApi.Engine – RandomUserApi v1.2.0</title>
     <link rel="stylesheet" href="dist/app-9c1e3d5aa2.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/random_user_api/RandomUserApi.Engine.html" />
@@ -28,7 +28,7 @@
         RandomUserApi
       </h1>
       <h2 class="sidebar-projectVersion">
-        v1.1.0
+        v1.2.0
       </h2>
     </div>
     
@@ -61,7 +61,7 @@
 
 
       <h1>
-        <small class="visible-xs">RandomUserApi v1.1.0</small>
+        <small class="visible-xs">RandomUserApi v1.2.0</small>
         RandomUserApi.Engine
         
         
@@ -90,7 +90,7 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_users/1">get_users(options \\ [])</a>
+    <a href="#get_users/1">get_users(params \\ [])</a>
   </div>
   
     <div class="summary-synopsis"><p>Function that generates n number of random users.
@@ -124,9 +124,9 @@ Return list of maps with the users</p>
     <a href="#get_users/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">get_users(options \\ [])</span>
+    <span class="signature">get_users(params \\ [])</span>
     
-      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/engine.ex#L19" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/PatNowak/random_user_api/blob/master/lib/RandomUserApi/engine.ex#L16" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -144,11 +144,7 @@ Return list of maps with the users.</p>
 </li>
 <li>gender: atom, :male or :female. If something different is passed, it won’t be applied
 </li>
-<li>nat: list of nationalities, comma-separated. In handles only known nationalities by the API
-</li>
-<li>inc: list of included fields
-</li>
-<li>exc: list of excluded fields
+<li>nat: list of nationalities, for now just one. In handles only known nationalities by the API
 </li>
 </ul>
 
