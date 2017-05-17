@@ -1,5 +1,5 @@
 defmodule RandomUserApi.Engine do
-  @random_me_url "http://api.randomuser.me"
+  @random_me_url "https://api.randomuser.me"
   @possible_fields ~w(cell dob email gender id location login name nat phone picture registered)
   @nats ~w(AU BR CA CH DE DK ES FI FR GB IE IR NL NZ TR US)
 
@@ -46,7 +46,7 @@ defmodule RandomUserApi.Engine do
       _ -> nil
     end
     if gender do
-      url <> "&gender=#{gender}" 
+      url <> "&gender=#{gender}"
     else
       url
     end
@@ -64,8 +64,8 @@ defmodule RandomUserApi.Engine do
     end
    |> Enum.filter(&(&1 in possible_fields))
    |> Enum.join(",")
-   url <> "&#{name}=#{fields}" 
-  end 
+   url <> "&#{name}=#{fields}"
+  end
 
   defp _process(input) do
     input

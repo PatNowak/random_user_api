@@ -1,6 +1,6 @@
 defmodule RandomUserApi.TestAPI do
 
-  @random_me_url "http://api.randomuser.me"
+  @random_me_url "https://api.randomuser.me"
 
   @doc """
   Test module instead of using API in test env
