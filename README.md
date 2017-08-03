@@ -12,45 +12,39 @@ The package can be installed as:
 
   1. Add random_user_api to your list of dependencies in `mix.exs`:
 
-        def deps do
-          [{:random_user_api, "~> 1.0.0"}]
-        end
-
-  2. Ensure random_user_api is started before your application, otherwise it won't work:
-
-        def application do
-          [applications: [:random_user_api]]
-        end
-
+```elixir
+def deps do
+  [
+    {:random_user_api, "~> 1.2.1"}
+  ]
+end
+```
 
 Documentation is available [here](https://hexdocs.pm/random_user_api/api-reference.html).
 
-##Instruction
+## Instruction
 
-To use this library just call `Engine.get_users/1` with `options`, which are by default empty list.
+Usage is very straightforward. In many cases simple call for single user would be enough.
+```elixir
+alias RandomUserApi.Engine
 
-In this short instruction assume, that `Engine` is an alias for `RandomUserApi.Engine`.
+# get single user
+Engine.get_users()
 
-- Get single user
+# get 10 users
+ Engine.get_users [number: 10]
+ 
+# get one female
+Engine.get users [gender: :female]
 
-        Engine.get_users`
+# get three men
+Engine.get_users [number: 3, gender: :male]
 
-- Get Multiple users eg. 10
+# get one Brazilian
+Engine.get_users [nat: "BR"]
+```
 
-        Engine.get_users [number: 10]
-
-- Get users with selected gender eg. `"female"`
-
-        Engine.get_users [gender: :female]
-
-- Get three mans
-
-        Engine.get_users [number: 3, gender: :male]
-
-- Get BR user
-        Engine.get_users [nat: "BR"]`
-
-###TODO:
+### TODO:
 
 - Included / excluded fields
 - list of values
