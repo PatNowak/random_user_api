@@ -8,9 +8,7 @@
 
 ## Installation
 
-The package can be installed as:
-
-  1. Add random_user_api to your list of dependencies in `mix.exs`:
+To install this app, just add it in your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
